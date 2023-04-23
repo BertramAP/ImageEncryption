@@ -1,8 +1,9 @@
 class StartScreen {
-  String startText = "billedKrypering";
-  Button button1 = new Button(width*1/3, height*2/5, width/3, 80, "Spil");
+  String startText = "Kryptering af billeder";
+  Button button1 = new Button(width*1/3, height*2/5, width/3, 80, "Start program");
   Button button2 = new Button(width*1/3, height*3/5, width/3, 80, "Hvad er kryptering?");
   boolean active = false;
+  
   void show() {
     this.active = true;
     background(255, 255, 255);
@@ -12,16 +13,10 @@ class StartScreen {
     text(startText, width/2, height*2/10);
     button1.show();
     button2.show();
-
   }
+  
   void update() {
-
-    if(button1.checkInput() && this.active) {
-      
-      this.active = false;
-      
-    } else if(button2.checkInput() && this.active) { 
-      this.active = false;
-    }  
+    if(active && button1.checkInput()) active = false;
+    else if(this.active && button2.checkInput()) active = false; 
   }
 }
