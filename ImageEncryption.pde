@@ -47,6 +47,10 @@ void keyPressed() {
   if (keyCode == 69) encryptedImage.encrypt();
 }
 
+void mousePressed() {
+  startScreen.update();
+}
+
 int[] generateKeyArray(int amount) {
   int[] array = new int[amount];
   for (int i = 0; i < amount; i++) array[i] = int(random(-2147483648, 2147483647));

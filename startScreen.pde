@@ -17,6 +17,7 @@ class StartScreen {
   void update() {
 
     if(button1.checkInput() && this.active) {
+      
       this.active = false;
       
     } else if(button2.checkInput() && this.active) { 
