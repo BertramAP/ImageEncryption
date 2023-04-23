@@ -29,7 +29,6 @@ class Image {
     image.loadPixels();
     
     // Shuffling rows
-    
     for (int y = 0; y < image.height; y++) {
       for (int x = 0; x < image.width; x++) {
         int currentIndex = toIndex(x, y, image);
@@ -52,7 +51,6 @@ class Image {
         image.pixels[shuffleIndex] = pixelBackup;
       }
     }
-    
     image.updatePixels();
   }
   
@@ -66,16 +64,6 @@ class Image {
   
   int extractByte(int number, int byteAmount) {
     return ( number >> ( 8 * (byteAmount-1) ) ) & 0xFF;
-  }
-  
-  // Functions
-  color powerFunction(color number) {
-    int alpha = extractByte(number, 1);
-    int red =   extractByte(number, 2);
-    int green = extractByte(number, 3);
-    int blue =  extractByte(number, 4);
-    
-    return color(red, green, blue, alpha);
   }
 }
 

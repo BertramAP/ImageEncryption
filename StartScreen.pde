@@ -5,7 +5,7 @@ class StartScreen {
   boolean active = false;
   
   void show() {
-    this.active = true;
+    active = true;
     background(255, 255, 255);
     textSize(48);
     textAlign(CENTER, CENTER);
@@ -16,7 +16,7 @@ class StartScreen {
   }
   
   void update() {
-    if(active && button1.checkInput()) active = false;
-    else if(this.active && button2.checkInput()) active = false; 
+    if (active && button1.checkInput()) active = false;
+    else if (active && button2.checkInput()) active = false; 
   }
 }
