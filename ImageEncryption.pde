@@ -12,23 +12,22 @@ void setup() {
   startScreen = new StartScreen(); 
   
   inputImage = new Image( loadImage("image.png") );
-  encryptedImage = new Image( loadImage("encrypted.png") );
+  encryptedImage = new Image( loadImage("image.png") );
+  
+  // Encryption
+  encryptedImage.pixelKeys = generateKeyArray(inputImage.image.height * inputImage.image.width);
+  encryptedImage.rowKeys = generateIndexShuffle(encryptedImage.image.height);
+  encryptedImage.columnKeys = generateIndexShuffle(encryptedImage.image.width);
+  
+  //encryptedImage.otherEncrypt();
+  encryptedImage.xor();
+  //encryptedImage.shuffleEncrypt();
   
   float widthScale = width * bounding.x / inputImage.image.width;
   float heightScale = height * bounding.y / inputImage.image.height;
   float imageScale;
-  
-  
-  int number = 1789036;
-  println( number & 0xFF );
-  println( (number >> 8) & 0xFF);
-  println( (number >> 16) & 0xFF);
-  println( (number >> 24) & 0xFF);
-  
-  if ( widthScale < heightScale ) {
-    imageScale = widthScale;
-  } 
-  
+ 
+  if ( widthScale < heightScale ) imageScale = widthScale;
   else imageScale = heightScale;
   
   imageDimensions = new PVector( inputImage.image.width * imageScale, inputImage.image.height * imageScale );
@@ -46,4 +45,16 @@ void draw() {
 
 void keyPressed() {
   if (keyCode == 69) encryptedImage.encrypt();
+}
+
+int[] generateKeyArray(int amount) {
+  int[] array = new int[amount];
+  for (int i = 0; i < amount; i++) array[i] = int(random(-2147483648, 2147483647));
+  return array;
+}
+
+int[] generateIndexShuffle(int range) {
+  int[] array = new int[range];
+  for (int i = 0; i < range; i++) array[i] = int(random(range));
+  return array;
 }
