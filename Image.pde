@@ -9,15 +9,7 @@ class Image {
     this.pixelKeys = new int[0];
   }
   
-  void encrypt() {
-    image.loadPixels();
-    for (int i = 0; i < image.pixels.length; i++) {
-      image.pixels[i] = powerFunction( image.pixels[i] );
-    }
-    image.updatePixels();
-  }
-  
-  void otherEncrypt() {
+  void vigenereEncrypt() {
     image.loadPixels();
     for (int i = 0; i < image.pixels.length; i++) {
       image.pixels[i] = image.pixels[i] + pixelKeys[i % pixelKeys.length];

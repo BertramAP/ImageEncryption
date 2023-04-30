@@ -1,6 +1,7 @@
 class Button { 
   int x, y, w, h;
   String text;
+  color btnColor = color(66, 105, 245);
   
   Button(int x, int y, int w, int h, String text) {
     this.x = x;
@@ -12,7 +13,7 @@ class Button {
   
   void show() {
     rectMode( CORNER );
-    fill(66, 105, 245);
+    fill(btnColor);
     rect(x, y, w, h, 15);
     fill(0, 0, 0);
     textAlign(CENTER, CENTER);
