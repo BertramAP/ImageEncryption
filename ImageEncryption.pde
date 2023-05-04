@@ -79,7 +79,6 @@ void mousePressed() {
 }
 
 void keyPressed() {
-  println(keyCode);
   if (keyCode == 79) selectInput("Selected Image:", "imageSelected");
   else if (keyCode == 83) encryptedImage.image.save("savedEncrypted.png");
 }
